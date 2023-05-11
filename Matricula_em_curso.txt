@@ -1,0 +1,26 @@
+@startuml
+class aluno{
+    +horarios : string
+    +matricula : string
+}
+class funcionario{
+ +informacao : string
+}
+class cursos{
+
+}
+class empresa{
+    +turma : string
+}
+class aulas{
+    +horario : string
+    +data_de_inicio : string
+}
+aluno"1..*"--"1..*"cursos
+aluno"1..1"--"1..*"aulas
+cursos"*..1"--"1..*"empresa
+funcionario"1..*"--"1..*"empresa
+@enduml
+
+
+

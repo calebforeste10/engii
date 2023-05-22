@@ -1,0 +1,108 @@
+@startuml
+class Fabrica{
+  - nome: String
+  - endereco: String
+  - telefone: String
+  + fazerPedido(): void
+}
+class Funcionario{
+  - nome: string
+  - id: string
+  - tipo: string
+}
+class Venda{
+  Departamento: string
+  idCliente: string
+  tipoProduto: string
+
+}
+class Escritorio{
+  - nomeSecretatia: string
+  - nomeSupervisor: string
+  + receberFuncionario: void
+
+}
+class Planta{
+  - tipoReceptaculo: string
+  - tipoMistirador: string
+  - tipoValvula: string
+  + controlarIngrediente: void
+}
+class Cliente{
+  - id: int
+  - nome: String
+  - endereco: String
+  - telefone: String
+  + realizarPedido(): void
+}
+class Pedido{
+  - tipoConcreto: String
+  - quantidade: int
+  - nomeTransportador
+  + ordemPedido: void
+}
+class DepartVenda{
+  - nomeFuncionario: string
+  - tipoFuncionario: string
+  + escalonarPedido: void
+  + encaminharPedido: void
+}
+class EncarProducao{
+  - id: int
+  - nome: string
+  - endereco: string
+  + solicitarDepartCompra: void
+}
+class Producao{
+  - tipoProduto: string
+  - nomeEncarProducao: string
+  - nomeOperadorMaquina: string
+  - nomeEncarAlmoxarifado: string
+  + solicitarMateriais: void
+}
+class OperMaquina{
+  - nome: string
+  - id: int
+  - tipoMaquina: string
+  + controlarFabricacao: void
+  + controlarFluxo: void
+
+}
+class EncarAlmoxarifado{
+  - nome: string
+  - id: int
+  - tipoMaterial: string
+  + entregarMaterial: void
+}
+class DepartCompra{
+  - nomeFuncionario: string
+  - tipoFuncionario: string
+  + providenciarPedido: void
+
+}
+class SetorRecebimento{
+    - nomeFuncionario: string
+    - tipoFuncionario: string
+    + conntrolarEntrega(): void
+}
+class DepartFinanciera{
+    - nomeFuncionario: string
+    - tipoFuncionario: string
+    + receberPagamento(): void
+}
+Venda "1".--* Fabrica
+Planta "1"--"1" Fabrica
+Escritorio "1"--"1" Fabrica
+Escritorio "1"--"1" Funcionario
+Planta "1"--"1" Producao
+Venda "1"--"1" Cliente
+Venda "1"--"1" DepartVenda
+Venda "1"--"1" DepartCompra
+Venda "1"--"1" DepartFinanciera
+Venda "1"--"1" SetorRecebimento
+Producao "1"--"1" OperMaquina
+Producao "1"--"1" EncarAlmoxarifado
+Producao "1"--"1" EncarProducao
+Producao "1"--"1" Pedido
+
+@enduml

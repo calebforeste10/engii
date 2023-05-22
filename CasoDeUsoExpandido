@@ -1,0 +1,77 @@
+Caso de uso: Receber Pagamento
+Ator primarío: Departamento Financiero
+Outros atores:Cliente 
+
+Descricão: O caso de uso descreve o processo do recebimento de Pagamento
+
+Fluxo Principal:
+
+Passo       Acao do Ator                                Acao do Sistema
+1           Cliente: Efetuar Pagamento                  Notificar Departamento Financiero sobre o pagamento            
+            (Funcao: efetuarPagamento)                  (Funcao: notificar pagamento)                        
+2           Departamento Financiero: Receber Pagamento  Mandar Recibo
+            (Funcao: receberPagamento)                  (Funcao: mandarRecibo)
+
+
+Fluxo Alternativo:
+
+Passo       Acao do Ator                        Acao do Sistema
+1          Departamento Financiero:             Mandar retorno para o departamento
+           Verificar se o pagamento efetuado    (Funcao: mandarRetorno)
+           (Funcao: verificarPagamento)
+2           Departamento Financiero:            
+            Dar retorno para o Cliente
+            (Funcao:darRetornoCliente)
+
+Pré-condições:
+- O Cliente realizou um pedido e recebeu a entrega do produto.
+
+Pós-condições:
+- O pagamento é recebido.Caso de uso: Receber Pagamento
+
+
+----------------------------------------------------------------------------------------------
+
+
+Caso de Uso: Escalonar Pedido
+Ator primarío: Departamento de vendas
+Outros atores: Encarreghado de producao, Cliente
+
+Descricão: O caso de uso descreve o processo do escalonamento de pedido
+
+Fluxo Principal:
+
+Passo       Acao do Ator                    Acao do Sistema
+1           Cliente Registrar Pedido        Notificar o Departamento de Vendas
+            (Funcao: registarPedido)        (Funcao: notificar)
+1           Departamento de vendas          Receber pedido de concreto
+                                            (Função: ReceberPedidoConcreto)
+2           Departamento de vendas         Escalonar pedido
+                                           (Função: EscalonarPedido)
+            Departamento de vendas          Encaminhar pedo ao Encarregado de Produção
+                                            (Função: EncaminharPedido)
+            Encarregado de Produção         Receber pedido escalonado
+                                            (Função: ReceberPedidoEscalonado)
+
+
+Fluxo Alternativo:
+
+Passo       Acao do Ator                        Acao do Sistema
+1          Departamento de vendas              Notificar o cliente quando o                                                registo feito
+                                                (Funcao: notificarCliente)
+2          Encarregado de produção             Dar retorno para
+                                                o departamento de vendas
+                                                (Funcao:darRetorno)
+
+Pré-condições:
+- O Cliente realizou um pedido 
+Pós-condições:
+- O Departamento de vendas Escalonar o pedido.
+
+
+
+
+
+
+
+

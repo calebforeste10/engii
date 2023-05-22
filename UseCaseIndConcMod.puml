@@ -1,0 +1,59 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rect
+actor "operator de valvula de medicao" as Ope_Va
+actor "Operador de mistura" as Ope_Mi
+actor Cliente
+actor "Departamento de Vendas" as dv
+actor "Encarregado producao" as En_Pro
+actor Produção
+actor "Almoxarifado e Estocagem" as ae
+actor "Operador de maquinas" as Ope_Ma
+actor "Encarregado de fluxo" as En_Fl
+actor "Setor de Recebimento e Distribuição" as srd
+actor Transportadora
+actor "Departamento Financeiro" as df
+
+rectangle "Sistema de Produção da Indústria de Concreto" {
+  usecase "controla decarga de agua" as UC7
+  usecase "Manipular o misturador" as UC8
+  usecase "Registrar Pedido" as UC1
+  usecase "Escalonar Pedido" as UC2
+  usecase "Controlar Produção" as UC3
+  usecase "Gerenciar Estoque" as UC4
+  usecase "Controlar a fabricacão" as UC10
+  usecase "Controlar o fluxo do trabalho" as UC11
+  usecase "Emitir ordem para departamento de compras" as UC9
+  usecase "Receber Pagamento" as UC6
+  usecase "Gerenciar Transporte e Entrega" as UC5
+
+  Cliente -- UC1
+  UC1 -- dv
+  dv -- UC2
+  Ope_Va -- UC7
+  Ope_Mi -- UC8
+  En_Pro -- UC9
+  Ope_Ma -- UC10
+  En_Fl -- UC11
+  UC3 -- ae
+  UC4 -- Produção
+  srd -- UC4
+  Transportadora -- UC5
+  UC6 -- df
+
+  UC8 .> UC7 : <<incluide>>
+  UC1 .> UC8 : <<extende>>
+  UC2 .> UC1 : <<include>>
+  UC2 <. UC3 : <<extende>>
+  UC4 .> UC3 : <<include>>
+  UC10 .> UC4 : <<include>>
+  UC11 .> UC10 : <<include>>
+  UC9 .> UC11 : <<extende>>
+    UC6 .> UC9 : <<extende>>
+    UC5 .> UC6 : <<include>>
+    
+
+}
+
+@enduml

@@ -1,9 +1,12 @@
 1 - Requisitos Básicos (O que o sistema deve  fazer):
     R1 - Controlar a produção
     R2 - Atender a demanda de pedidos
-    R3 - Controla a materia prima
-    R4 - Controla a entrega de concreta
-    R5 - Controla as compra de materia prima
+    R3 - Controlar escalonamento
+    R4 - Controlar o gerenciamento de estoques
+    R5 - Controlar a materia prima
+    R6 - Controlar a entrega de concreta
+    R7 - Controlar as compra de materia prima
+    R8 - Controlar o processo de vendas
 2 - Descrião textual:
     Estudo de caso
 
